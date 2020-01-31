@@ -1,0 +1,21 @@
+{
+  "name": "open-data",
+  "version": "1.0.0",
+  "description": "projet fin d'année",
+  "main": "server-open-data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server-open-data.js",
+    "dev": "nodemon bin/start.js"
+  },
+  "author": "flo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.18.1",
+    "server": "^1.0.22"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
