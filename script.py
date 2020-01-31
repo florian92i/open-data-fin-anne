@@ -1,3 +1,4 @@
+# coding=utf-8
 import csv
 import requests
 import json
@@ -24,7 +25,7 @@ def downloadCsv(urlOpenDataArg):
         f.write(response.content)
 
 
-# downloadCsv(urlOpenData)
+# downloadCsv(urlOpenData) # active for PROD production only, no need for DEV production
 
 df = pd.read_csv("file.csv", encoding='utf-8', sep=";", na_values=['_______'])
 print(df.columns)
