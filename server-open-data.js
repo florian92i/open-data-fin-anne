@@ -1,11 +1,10 @@
 // server-open-data.js
-
-// BASE SETUP
-// ==============================================
 const { Pool } = require('pg')
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
+// BASE SETUP
+// ==============================================
 
 const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({
