@@ -136,4 +136,4 @@ sklearn==0.0
 sqlparse==0.3.0
 tzlocal==1.5.1
 urllib3==1.23
-Werkzeug==0.15.0
+Werkzeug==0.15.3
