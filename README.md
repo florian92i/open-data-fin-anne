@@ -32,3 +32,16 @@ CREATE TABLE films ();
 \dt 
 ALTER TABLE opendata ADD COLUMN phone VARCHAR;
 COPY opendata FROM '/app/out.csv' DELIMITER ';' CSV HEADER;
+
+## API les routes
+
+Prefix par : /api-open-data/
+
+/localisation/ --> Return les points latitude, longitude, id_station pour l'afficher dans la carte 
+/localisation/{id_station} --> Return toutes les infos + calculer prixKwh
+/localisation/?typeconnecteur=''&nbrborne=''&fournisseurBorne=''&prixKwh=''&typedeprise=''&accesrecharge=''
+
+Dans le front avec l'api de google map : 
+filtrer par périmètre + afficher le nombre de marqueur
+Ne pas oublier d'afficher les selects en rapport avec les colonnes dans le csv
+
