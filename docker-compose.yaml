@@ -1,10 +1,10 @@
 # docker-compose.yml
-version: "3"
+version: '3.5'
 services:
   app:
     build: .
     depends_on:
-      - postgres
+      - db
     environment:
       DATABASE_URL: postgres://user:pass@postgres:5432/db
       NODE_ENV: development
@@ -16,11 +16,13 @@ services:
       - .:/app/
       - /app/node_modules
 
-  postgres:
-    image: postgres:12
-    ports:
-      - "35432:5432"
+  db:
+    image: postgres:11-alpine
+    restart: always
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: pass
-      POSTGRES_DB: db
+      POSTGRES_DB: open-data-paris
+      POSTGRES_USER: postgres
+    ports:
+      - "7200:5432"
+    volumes:
+      - ./sql_import:/app/

@@ -31,5 +31,6 @@ df = pd.read_csv("file.csv", encoding='utf-8', sep=";", na_values=['_______'])
 print(df.columns)
 df.drop(['n_amenageur', 'source'], axis=1, inplace=True)  # drop column, inplace true for reasign the dataFrame for df
 df.replace('', np.nan, inplace=True)
+df.replace("\t"," ", regex=True) ## remplace la tabulation
 
 df.to_csv('out.csv', encoding='utf-8')

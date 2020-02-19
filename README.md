@@ -18,3 +18,17 @@ psql postgres://user:pass@localhost:35432/db
 
 file `script.py`
 
+## Cmd postgres
+
+https://www.datacamp.com/community/tutorials/10-command-line-utilities-postgresql
+
+
+
+## Memo sql
+psql -U postgres
+\l
+\c madatabase
+CREATE TABLE films ();
+\dt 
+ALTER TABLE opendata ADD COLUMN phone VARCHAR;
+COPY opendata FROM '/app/out.csv' DELIMITER ';' CSV HEADER;
