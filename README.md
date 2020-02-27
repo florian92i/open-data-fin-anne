@@ -34,7 +34,12 @@ C'est tres simple il faut changer le dictionnaire --> nameColumnReplace
 ### Comment modifer les règles du fichier pour supprimer une ligne ? (WIP) venir me voir pour que je le fasse
 
 ```python
-'delColumn': ['BOUYGUES ENERGIES ET SERVICES'] # supprimera la ligne si il contient le mot 'BOUYGUES ENERGIES ET SERVICES'
+    'delColumn': [
+      {'isRegex': True, 'deleteIfMatchWith': 'F.*'}, # Tout les mots qui contienne un F sont supprimer (regex)
+      {'isRegex': False, 'deleteIfMatchWith': 'AIRESERVICES'}, # Mot qui contient 'AIRESERVICES' supprimé
+      {'isRegex': False, 'deleteIfMatchWith': 'BOUYGUES ENERGIES ET SERVICES'}, 
+      {'isRegex': False, 'deleteIfMatchWith': 'SIEL42'}
+    ],
 ```
 
 > Rajouter un élément dans le tableau pour rajouter des conditions de drop, les deux conditions ne se cumule pas ils seront traité séparement
@@ -42,13 +47,18 @@ C'est tres simple il faut changer le dictionnaire --> nameColumnReplace
 ### Structure global pour un champ
 
 ```python
-'n_operateur': { ## nom du champ dans le csv
-  'delColumn': ['BOUYGUES ENERGIES ET SERVICES']', ## je dois le dev
-  'regexReplace': [
-    {'valueMatch': '‚', 'replacerValueBy': 'a'},
-    {'valueMatch': 'S', 'replacerValueBy': ''}
-  ]
-},
+  'n_operateur': { ## nom champ csv
+    'delColumn': [
+      {'isRegex': True, 'deleteIfMatchWith': 'F.*'},
+      {'isRegex': False, 'deleteIfMatchWith': 'AIRESERVICES'},
+      {'isRegex': False, 'deleteIfMatchWith': 'BOUYGUES ENERGIES ET SERVICES'},
+      {'isRegex': False, 'deleteIfMatchWith': 'SIEL42'}
+    ],
+    'regexReplace': [
+      {'valueMatch': '‚', 'replacerValueBy': 'a'},
+      {'valueMatch': 'test', 'replacerValueBy': ''}
+    ]
+  },
 ```
 
 > Au dessus l'exemple pour l'objet n_operateur
